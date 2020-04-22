@@ -19,4 +19,16 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Click start button");
     }
+
+    public void ExitButton()
+    {
+        Debug.Log("Exit button clicked.");
+        // check for user confirmation?
+        Application.Quit();
+    }
+
+    public void OptionsButton()
+    {
+        Debug.Log("Options Button clicked.");
+    }
 }

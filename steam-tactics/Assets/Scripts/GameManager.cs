@@ -24,7 +24,11 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Exit button clicked.");
         // check for user confirmation?
-        Application.Quit();
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                Application.Quit();
+        #endif
     }
 
     public void OptionsButton()

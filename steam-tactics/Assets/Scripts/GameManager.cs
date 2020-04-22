@@ -14,4 +14,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void StartButton()
+    {
+        Debug.Log("Click start button");
+    }
 }

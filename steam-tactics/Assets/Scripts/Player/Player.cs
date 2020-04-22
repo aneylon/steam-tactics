@@ -2,8 +2,19 @@
 
 public class Player : MonoBehaviour
 {
-    public float moveSpeed = 10f;
-    public float turnSpeed = 50f;
+    public int maxHealth = 100;
+    public int currentHealth = 0;
+
+    public float moveSpeed = 50f;
+    public float turnSpeed = 150f;
+
+    public HealthBar healthBar;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
+    }
 
     void Update()
     {
@@ -27,5 +38,16 @@ public class Player : MonoBehaviour
             Debug.Log("Right");
             transform.Rotate(Vector3.up * -turnSpeed * Time.deltaTime);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage(20);
+        }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 }

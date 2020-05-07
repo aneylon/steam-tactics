@@ -5,9 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public MusicManager musicManager;
+    public GameBoard GameBoard;
+
     void Start()
     {
         Debug.Log("Start it up.");
+        GameBoard = GetComponent<GameBoard>();
     }
 
     void Update()
@@ -18,6 +21,8 @@ public class GameManager : MonoBehaviour
     public void StartButton()
     {
         Debug.Log("Click start button");
+        Debug.Log(GameBoard);
+        GameBoard.CreateGameBoard(3, 4);
     }
 
     public void ExitButton()

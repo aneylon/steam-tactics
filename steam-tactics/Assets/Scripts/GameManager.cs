@@ -5,24 +5,28 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public MusicManager musicManager;
-    public GameBoard GameBoard;
+    public GameObject GameTile;
 
     void Start()
     {
         Debug.Log("Start it up.");
-        GameBoard = GetComponent<GameBoard>();
     }
 
-    void Update()
+    public void CreateGameBoard(int length, int width)
     {
-        
+        for (int i = 0; i < length; i++)
+        {
+            for (int j = 0; j < width; j++)
+            {
+                Instantiate(GameTile, new Vector3(i, 0, j), Quaternion.identity);
+            }
+        }
     }
 
     public void StartButton()
     {
         Debug.Log("Click start button");
-        Debug.Log(GameBoard);
-        GameBoard.CreateGameBoard(3, 4);
+        CreateGameBoard(3, 4);
     }
 
     public void ExitButton()
